@@ -6,7 +6,7 @@
 /*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 15:14:24 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/06/02 17:26:32 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/06/03 15:02:16 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,17 +62,7 @@ int	main(void)
 {
 	t_param		par;
 
-	par.mlx = mlx_init();
-	par.g = mlx_xpm_file_to_image(par.mlx, "imgs/g.xpm", &par.wi, &par.he);
-	par.w = mlx_xpm_file_to_image(par.mlx, "imgs/r.xpm", &par.wi, &par.he);
-	par.c = mlx_xpm_file_to_image(par.mlx, "imgs/c.xpm", &par.wi, &par.he);
-	par.win = mlx_new_window(par.mlx, 1000, 1000, "DrawMap");
-	par.x = 0;
-	par.y = 0;
-	par.win_width = 0;
-	par.win_height = 0;
-	par.move = 0;
-	par.fd = open("maps/map.ber", O_RDONLY);
+	set_param(&par);
 	if (checkmap_length(&par))
 		draw(&par);
 	else

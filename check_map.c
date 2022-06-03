@@ -1,36 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DrawMap.c                                          :+:      :+:    :+:   */
+/*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/26 18:41:42 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/06/03 15:10:08 by jaeyjeon         ###   ########.fr       */
+/*   Created: 2022/06/03 13:20:26 by jaeyjeon          #+#    #+#             */
+/*   Updated: 2022/06/03 13:42:17 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	draw_img(char a, t_param *par, int x, int y)
+int	check_map_len(t_param par)
 {
-	if (a == '0')
-		mlx_put_image_to_window(\
-		par->mlx, par->win, par->g, x, y);
-	else if (a == '1')
-		mlx_put_image_to_window(\
-		par->mlx, par->win, par->w, x, y);
-	else if (a == 'P')
-		mlx_put_image_to_window(\
-		par->mlx, par->win, par->c, x, y);
-	else if (a == 'C')
-		mlx_put_image_to_window(\
-		par->mlx, par->win, par->g, x, y);
-	else if (a == 'E')
-		mlx_put_image_to_window(\
-		par->mlx, par->win, par->g, x, y);
-}
 
+}
 int	checkmap_length(t_param *par)
 {
 	char	*str;
@@ -61,29 +46,4 @@ int	checkmap_length(t_param *par)
 		str = get_next_line(par->fd);
 	}
 	return (1);
-}
-
-int	drawmap(t_param *par)
-{
-	char	*str;
-	int		x;
-	int		y;
-
-	x = 0;
-	y = 0;
-	par->fd = open("maps/map.ber", O_RDONLY);
-	str = get_next_line(par->fd);
-	while (str != NULL)
-	{
-		while (*str != '\0')
-		{
-			draw_img(*str, par, x, y);
-			str++;
-			x += par->wi;
-		}
-		str = get_next_line(par->fd);
-		x = 0;
-		y += par->he;
-	}
-	return (0);
 }
