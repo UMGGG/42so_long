@@ -6,7 +6,7 @@
 /*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 18:35:34 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/06/03 15:37:18 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/06/07 13:57:53 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	freeall(t_param *par);
 void	set_param(t_param *par);
 int		drawmap(t_param *par);
 int		checkmap_length(t_param *par);
-int		copyline(char *str, t_mapline *start);
+int		copyline(char *str, t_param *par);
 int		copymap(t_param *par);
 
 #endif

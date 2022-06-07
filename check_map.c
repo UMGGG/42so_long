@@ -6,7 +6,7 @@
 /*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 13:20:26 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/06/03 13:42:17 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/06/07 13:48:30 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	check_map_len(t_param par)
 {
 
 }
+
 int	checkmap_length(t_param *par)
 {
 	char	*str;

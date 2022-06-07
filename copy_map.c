@@ -6,7 +6,7 @@
 /*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 13:42:08 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/06/06 17:18:57 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/06/07 14:03:08 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,32 +19,27 @@ int	copymap(t_param *par)
 	str = get_next_line(par->fd);
 	while (str != NULL)
 	{
-		printf("----%s", str);
-		if (copyline(str, par->map) == 0)
-		{
-			freeall(par);
-			return (0);
-		}
+		copyline(str, par);
 		str = get_next_line(par->fd);
 	}
 	free (str);
 	return (1);
 }
 
-int	copyline(char *str, t_mapline *start)
+int	copyline(char *str, t_param *par)
 {
 	t_mapline	*line;
 	t_mapline	*currline;
 
-	currline = start;
-	if (start == NULL)
+	currline = par->map;
+	if (par->map == NULL)
 	{
 		line = malloc(sizeof(t_mapline));
 		if (!line)
 			return (0);
 		line->next = NULL;
 		line->line = ft_strdup(str);
-		start = line;
+		par->map = line;
 	}
 	else
 	{
@@ -92,7 +87,6 @@ int	main(void)
 	printf("--------------------------------\n");
 	copymap(&par);
 	currline = par.map;
-	printf("%s", currline->line);
 	while (currline != NULL)
 	{
 		printf("%s", currline->line);
