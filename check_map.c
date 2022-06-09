@@ -6,45 +6,104 @@
 /*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 13:20:26 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/06/07 13:48:30 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/06/09 18:23:25 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	check_map_len(t_param par)
+int	check_map(t_param *par)
 {
+	int	map_line;
 
+	map_line = check_line_len(par);
+	if (map_line)
+		if (check_wall(par, map_line))
+			if (check_map_char(par))
+				return (1);
+	return (0);
 }
 
-int	checkmap_length(t_param *par)
+int	check_line_len(t_param *par)
 {
-	char	*str;
-	int		check_p;
+	t_mapline	*curline;
+	int			before_line_len;
+	int			curr_line_len;
+	int			line_count;
 
-	check_p = 0;
-	str = get_next_line(par->fd);
-	if (str == NULL)
+	before_line_len = 0;
+	line_count = 0;
+	curline = par->map;
+	before_line_len = ft_strlen(curline->line);
+	while (curline)
 	{
-		printf("널값 받아짐");
-		return (0);
-	}
-	par->win_width = ft_strlen(str);
-	while (str != NULL && *str != '\n')
-	{
-		par->win_height++;
-		if (ft_strlen(str) != (size_t)par->win_width)
+		line_count++;
+		curr_line_len = ft_strlen(curline->line);
+		if (before_line_len != curr_line_len)
 		{
-			printf("길이 다름");
+			printf("줄 길이가 다름\n");
 			return (0);
 		}
-		while (*str != '\0')
+		before_line_len = curr_line_len;
+		curline = curline->next;
+	}
+	if (line_count >= 3)
+		return (line_count);
+	printf("줄이 3줄 이하임\n");
+	return (0);
+}
+
+int	check_wall(t_param *par, int linenum)
+{
+	int			line_count;
+	int			end_line;
+	t_mapline	*curline;
+
+	line_count = 0;
+	end_line = linenum;
+	curline = par->map;
+	while (curline)
+	{
+		if (line_count == 0 || line_count == end_line - 1)
 		{
-			if (*str == 'P')
-				check_p++;
+			if (!check_wall_end(curline->line))
+				return (0);
+		}
+		else
+		{
+			if (!check_wall_middle(curline->line))
+				return (0);
+		}
+		line_count++;
+		curline = curline->next;
+	}
+	return (1);
+}
+
+int	check_map_char(t_param *par)
+{
+	t_mapline	*curline;
+	char		*str;
+
+	curline = par->map;
+	while (curline)
+	{
+		str = curline->line;
+		while (*str != '\n')
+		{
+			if (*str == 'E')
+				par->count_e++;
+			else if (*str == 'P')
+				par->count_p++;
+			else if (*str == 'C')
+				par->count_c++;
+			else if (*str != '1' && *str != '0')
+				return (0);
 			str++;
 		}
-		str = get_next_line(par->fd);
+		curline = curline->next;
 	}
+	if (par->count_e != 1 || par->count_p != 1)
+		return (0);
 	return (1);
 }

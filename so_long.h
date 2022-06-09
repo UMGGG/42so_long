@@ -6,7 +6,7 @@
 /*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 18:35:34 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/06/07 13:57:53 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/06/09 18:16:21 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,22 @@ typedef struct s_param
 	int			win_width;
 	int			win_height;
 	int			move;
+	int			count_e;
+	int			count_p;
+	int			count_c;
 }	t_param;
 
-void	draw_img(char a, t_param *par, int x, int y);
-void	freeall(t_param *par);
+void	freemap(t_param *par);
 void	set_param(t_param *par);
-int		drawmap(t_param *par);
 int		checkmap_length(t_param *par);
 int		copyline(char *str, t_param *par);
 int		copymap(t_param *par);
+int		check_wall_end(char *str);
+int		check_wall_middle(char *str);
+int		check_wall(t_param *par, int linenum);
+int		check_line_len(t_param *par);
+int		check_map(t_param *par);
+int		check_line(char *str);
+int		check_map_char(t_param *par);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 14:56:34 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/06/03 15:21:55 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/06/09 18:04:40 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,7 @@ void	set_param(t_param *par)
 	par->move = 0;
 	par->fd = open("maps/map.ber", O_RDONLY);
 	par->map = NULL;
+	par->count_e = 0;
+	par->count_p = 0;
+	par->count_c = 0;
 }

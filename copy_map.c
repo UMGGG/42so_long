@@ -6,7 +6,7 @@
 /*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 13:42:08 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/06/07 14:03:08 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/06/09 18:17:29 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,30 +32,26 @@ int	copyline(char *str, t_param *par)
 	t_mapline	*currline;
 
 	currline = par->map;
-	if (par->map == NULL)
-	{
 		line = malloc(sizeof(t_mapline));
-		if (!line)
-			return (0);
-		line->next = NULL;
-		line->line = ft_strdup(str);
-		par->map = line;
+	if (!line)
+	{
+		freemap(par);
+		return (0);
 	}
+	line->next = NULL;
+	line->line = ft_strdup(str);
+	if (par->map == NULL)
+		par->map = line;
 	else
 	{
 		while (currline->next != NULL)
 			currline = currline->next;
-		line = malloc(sizeof(t_mapline));
-		if (line == NULL)
-			return (0);
-		line->next = NULL;
-		line->line = ft_strdup(str);
 		currline->next = line;
 	}
 	return (1);
 }
 
-void	freeall(t_param *par)
+void	freemap(t_param *par)
 {
 	t_mapline	*currline;
 	t_mapline	*nextline;
@@ -68,28 +64,4 @@ void	freeall(t_param *par)
 		currline = nextline;
 	}
 	free (currline);
-}
-
-int	main(void)
-{
-	t_param		par;
-	t_mapline	*currline;
-	char		*str;
-
-	set_param(&par);
-	str = get_next_line(par.fd);
-	while (str != NULL)
-	{
-		printf("%s", str);
-		str = get_next_line(par.fd);
-	}
-	par.fd = open("maps/map.ber", O_RDONLY);
-	printf("--------------------------------\n");
-	copymap(&par);
-	currline = par.map;
-	while (currline != NULL)
-	{
-		printf("%s", currline->line);
-		currline = currline->next;
-	}
 }

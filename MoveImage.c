@@ -6,7 +6,7 @@
 /*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 15:14:24 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/06/03 15:02:16 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/06/07 15:53:27 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,24 +55,5 @@ int	redbut(void)
 {
 	printf ("press red button");
 	exit (0);
-	return (0);
-}
-
-int	main(void)
-{
-	t_param		par;
-
-	set_param(&par);
-	if (checkmap_length(&par))
-		draw(&par);
-	else
-	{
-		printf("ERROR");
-		return (0);
-	}
-	mlx_key_hook(par.win, &key_press, &par);
-	mlx_hook(par.win, PRESS_RED_BUTTON, 0, &redbut, &par);
-	mlx_loop_hook(par.mlx, &draw, &par);
-	mlx_loop(par.mlx);
 	return (0);
 }
