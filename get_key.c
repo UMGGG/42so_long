@@ -6,7 +6,7 @@
 /*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 19:18:26 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/06/09 20:50:31 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/06/09 20:58:42 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ int	key_press(int keycode, t_param *par)
 	else if (keycode == KEY_A)
 	{
 		printf("%d\n", par->p_x);
-		if (par->p_x != 1)
-			move_left(par);
+		move_left(par);
 	}
 	else if (keycode == KEY_D)
 	{
@@ -62,7 +61,16 @@ void	move_left(t_param *par)
 	while (x != 0)
 	{
 		if (x == 1)
-			*str = 'P';
+		{
+			if (*str == '1')
+				return ;
+			else
+			{
+				if (*str == 'C')
+					par->count_c--;
+				*str = 'P';
+			}
+		}
 		str++;
 		x--;
 	}
