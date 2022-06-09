@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/26 18:41:42 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/06/09 18:29:31 by jaeyjeon         ###   ########.fr       */
+/*   Created: 2022/06/09 18:47:38 by jaeyjeon          #+#    #+#             */
+/*   Updated: 2022/06/09 18:47:52 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,12 @@ void	draw_img(char a, t_param *par, int x, int y)
 		mlx_put_image_to_window(\
 		par->mlx, par->win, par->w, x, y);
 	else if (a == 'P')
+	{
 		mlx_put_image_to_window(\
-		par->mlx, par->win, par->c, x, y);
+		par->mlx, par->win, par->g, x, y);
+		mlx_put_image_to_window(\
+		par->mlx, par->win, par->p, x, y);
+	}
 	else if (a == 'C')
 		mlx_put_image_to_window(\
 		par->mlx, par->win, par->g, x, y);
@@ -41,17 +45,16 @@ int	drawmap(t_param *par)
 	x = 0;
 	y = 0;
 	currline = par->map;
-	str = currline->line;
-	while (currline != NULL)
+	while (currline)
 	{
-		while (*str != '\0')
+		str = currline->line;
+		while (*str != '\n')
 		{
 			draw_img(*str, par, x, y);
 			str++;
 			x += par->wi;
 		}
 		currline = currline->next;
-		str = currline->line;
 		x = 0;
 		y += par->he;
 	}

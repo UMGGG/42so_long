@@ -6,7 +6,7 @@
 /*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 18:35:34 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/06/09 18:16:21 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/06/09 18:51:55 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct s_param
 {
 	void		*mlx;
 	void		*win;
-	void		*c;
+	void		*p;
 	void		*g;
 	void		*w;
 	t_mapline	*map;
@@ -65,5 +65,9 @@ int		check_line_len(t_param *par);
 int		check_map(t_param *par);
 int		check_line(char *str);
 int		check_map_char(t_param *par);
+int		drawmap(t_param *par);
+int		esc_press(int keycode);
+int		redbut(void);
+void	draw_img(char a, t_param *par, int x, int y);
 
 #endif
