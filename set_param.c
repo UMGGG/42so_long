@@ -6,7 +6,7 @@
 /*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 14:56:34 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/06/09 18:44:18 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/06/09 19:28:47 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ void	set_param(t_param *par)
 	par->mlx = mlx_init();
 	par->g = mlx_xpm_file_to_image(par->mlx, "imgs/g.xpm", &par->wi, &par->he);
 	par->w = mlx_xpm_file_to_image(par->mlx, "imgs/r.xpm", &par->wi, &par->he);
-	par->win = mlx_new_window(par->mlx, 1000, 1000, "DrawMap");
+	par->c = mlx_xpm_file_to_image(par->mlx, "imgs/c.xpm", &par->wi, &par->he);
+	par->e = mlx_xpm_file_to_image(par->mlx, "imgs/e.xpm", &par->wi, &par->he);
+	par->win = NULL;
 	par->p = mlx_xpm_file_to_image(par->mlx, "imgs/p.xpm", &par->wi, &par->he);
 	par->x = 0;
 	par->y = 0;
@@ -29,4 +31,6 @@ void	set_param(t_param *par)
 	par->count_e = 0;
 	par->count_p = 0;
 	par->count_c = 0;
+	par->p_x = 0;
+	par->p_y = 0;
 }

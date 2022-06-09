@@ -6,7 +6,7 @@
 /*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 13:20:26 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/06/09 18:23:25 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/06/09 20:22:31 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	check_map(t_param *par)
 	int	map_line;
 
 	map_line = check_line_len(par);
+	par->win_height = map_line * par->he;
+	par->win_width = (ft_strlen(par->map->line) - 1) * par->wi;
 	if (map_line)
 		if (check_wall(par, map_line))
 			if (check_map_char(par))
@@ -103,7 +105,7 @@ int	check_map_char(t_param *par)
 		}
 		curline = curline->next;
 	}
-	if (par->count_e != 1 || par->count_p != 1)
+	if (par->count_e != 1 || par->count_p != 1 || par->count_c < 1)
 		return (0);
 	return (1);
 }
