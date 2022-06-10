@@ -6,7 +6,7 @@
 /*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 19:18:26 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/06/10 16:57:34 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/06/10 17:20:50 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,12 +127,12 @@ void	move_down(t_param *par, int y)
 	str = curline->line;
 	if (str[par->p_x] == '1')
 		return ;
-	else
-	{
-		if (str[par->p_x + 1] == 'C')
-				par->count_c--;
-			str[par->p_x] = 'P';
-	}
+	else if (str[par->p_x] == 'E')
+		if (get_e(par))
+			return ;
+	if (str[par->p_x] == 'C')
+		par->count_c--;
+	str[par->p_x] = 'P';
 	savestr[par->p_x] = '0';
 	par->move++;
 	set_p(par);
