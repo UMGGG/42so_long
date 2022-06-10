@@ -6,7 +6,7 @@
 /*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 13:20:26 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/06/09 20:22:31 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/06/10 18:04:10 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,13 @@ int	check_line_len(t_param *par)
 		line_count++;
 		curr_line_len = ft_strlen(curline->line);
 		if (before_line_len != curr_line_len)
-		{
-			printf("줄 길이가 다름\n");
-			return (0);
-		}
+			return (print_err("줄 길이가 다름"));
 		before_line_len = curr_line_len;
 		curline = curline->next;
 	}
 	if (line_count >= 3)
 		return (line_count);
-	printf("줄이 3줄 이하임\n");
-	return (0);
+	return (print_err("줄이 3줄 이하임"));
 }
 
 int	check_wall(t_param *par, int linenum)
@@ -69,12 +65,12 @@ int	check_wall(t_param *par, int linenum)
 		if (line_count == 0 || line_count == end_line - 1)
 		{
 			if (!check_wall_end(curline->line))
-				return (0);
+				return (print_err("벽이 다 둘러져있지않습니다"));
 		}
 		else
 		{
 			if (!check_wall_middle(curline->line))
-				return (0);
+				return (print_err("벽이 다 둘러져있지않습니다"));
 		}
 		line_count++;
 		curline = curline->next;
@@ -106,6 +102,12 @@ int	check_map_char(t_param *par)
 		curline = curline->next;
 	}
 	if (par->count_e != 1 || par->count_p != 1 || par->count_c < 1)
-		return (0);
+		return (print_err("탈출구, 시작지점, 수집품의 시작조건이 맞지않습니다"));
 	return (1);
+}
+
+int	print_err(char *str)
+{
+	printf("%s\n", str);
+	return (0);
 }

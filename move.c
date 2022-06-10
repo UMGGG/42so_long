@@ -6,7 +6,7 @@
 /*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 19:26:38 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/06/10 16:53:37 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/06/10 18:09:39 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ int	get_e(t_param *par)
 {
 	if (par->count_c == 0)
 	{
+		par->move++;
+		printf("Game Finished!! Step: %d\n", par->move);
 		freemap(par);
 		exit(0);
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 19:18:26 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/06/10 17:20:50 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/06/10 18:04:43 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	key_press(int keycode, t_param *par)
 	}
 	else if (keycode == KEY_ESC)
 		esc_press(keycode, par);
-	printf("move: %d   %d\n", par->move, par->count_c);
+	printf("step: %d\n", par->move);
 	drawmap(par);
 	return (0);
 }

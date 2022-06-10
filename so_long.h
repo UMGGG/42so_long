@@ -6,7 +6,7 @@
 /*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 18:35:34 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/06/10 17:39:52 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/06/10 18:01:05 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int		esc_press(int keycode, t_param *par);
 int		redbut(t_param *par);
 int		key_press(int keycode, t_param *param);
 int		get_e(t_param *par);
+int		print_err(char *str);
 void	draw_img(char a, t_param *par, int x, int y);
 void	set_p(t_param *par);
 void	move_left(t_param *par, int y);
