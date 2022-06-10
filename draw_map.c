@@ -6,7 +6,7 @@
 /*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 18:19:36 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/06/10 18:19:37 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/06/10 20:48:07 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,12 @@ void	draw_img(char a, t_param *par, int x, int y)
 		mlx_put_image_to_window(\
 		par->mlx, par->win, par->g, x, y);
 	else if (a == '1')
+	{
+		mlx_put_image_to_window(\
+		par->mlx, par->win, par->g, x, y);
 		mlx_put_image_to_window(\
 		par->mlx, par->win, par->w, x, y);
+	}
 	else if (a == 'P' || a == 'C' || a == 'E')
 	{
 		mlx_put_image_to_window(\
