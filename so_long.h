@@ -6,7 +6,7 @@
 /*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 18:35:34 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/06/10 16:56:06 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/06/10 17:39:52 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include "mlx/mlx.h"
-# include "inc/42Get_Next_Line/get_next_line.h"
+# include "lib/42Get_Next_Line/get_next_line.h"
 
 # define KEY_ESC			53
 # define KEY_W				13
