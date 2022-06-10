@@ -6,7 +6,7 @@
 /*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 19:18:26 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/06/09 20:58:42 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/06/10 16:57:34 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,129 +16,124 @@ int	key_press(int keycode, t_param *par)
 {
 	if (keycode == KEY_W)
 	{
-		if (par->p_y != 1)
-			move_up(par);
+		move_up(par, par->p_y);
 	}
-	else if (keycode == KEY_S && par->y != 480)
+	else if (keycode == KEY_S)
 	{
-		par->move++;
+		move_down(par, par->p_y);
 	}
 	else if (keycode == KEY_A)
 	{
-		printf("%d\n", par->p_x);
-		move_left(par);
+		move_left(par, par->p_y);
 	}
 	else if (keycode == KEY_D)
 	{
-		printf("%d\n", par->p_x);
-		if (par->p_x != (int)(ft_strlen(par->map->line) - 3))
-			move_right(par);
+		move_right(par, par->p_y);
 	}
 	else if (keycode == KEY_ESC)
-		esc_press(keycode);
-	printf("move: %d\n", par->move);
+		esc_press(keycode, par);
+	printf("move: %d   %d\n", par->move, par->count_c);
 	drawmap(par);
 	return (0);
 }
 
-void	move_left(t_param *par)
+void	move_left(t_param *par, int y)
 {
 	t_mapline	*curline;
 	char		*str;
-	int			x;
-	int			y;
 
 	curline = par->map;
-	x = par->p_x;
-	y = par->p_y;
-	str = curline->line;
-	while (y != 0)
-	{
+	while (y-- != 0)
 		curline = curline->next;
-		str = curline->line;
-		y--;
-	}
-	while (x != 0)
-	{
-		if (x == 1)
-		{
-			if (*str == '1')
-				return ;
-			else
-			{
-				if (*str == 'C')
-					par->count_c--;
-				*str = 'P';
-			}
-		}
-		str++;
-		x--;
-	}
-	*str = '0';
+	str = curline->line;
+	if (str[par->p_x - 1] == '1')
+		return ;
+	else if (str[par->p_x - 1] == 'E')
+		if (get_e(par))
+			return ;
+	if (str[par->p_x - 1] == 'C')
+		par->count_c--;
+	str[par->p_x - 1] = 'P';
+	str[par->p_x] = '0';
 	par->move++;
 	set_p(par);
 }
 
-void	move_right(t_param *par)
+void	move_right(t_param *par, int y)
 {
 	t_mapline	*curline;
 	char		*str;
-	int			x;
-	int			y;
 
 	curline = par->map;
-	x = par->p_x;
-	y = par->p_y;
-	str = curline->line;
-	while (y != 0)
-	{
+	while (y-- != 0)
 		curline = curline->next;
-		str = curline->line;
-		y--;
-	}
-	while (x != 0)
-	{
-		str++;
-		x--;
-	}
-	*str = '0';
-	str++;
-	*str = 'P';
+	str = curline->line;
+	if (str[par->p_x + 1] == '1')
+		return ;
+	else if (str[par->p_x + 1] == 'E')
+		if (get_e(par))
+			return ;
+	if (str[par->p_x + 1] == 'C')
+		par->count_c--;
+	str[par->p_x + 1] = 'P';
+	str[par->p_x] = '0';
 	par->move++;
 	set_p(par);
 }
 
-void	move_up(t_param *par)
+void	move_up(t_param *par, int y)
 {
 	t_mapline	*curline;
 	char		*str;
-	int			x;
-	int			y;
 
 	curline = par->map;
-	x = par->p_x;
-	y = par->p_y;
 	str = curline->line;
 	while (y != 0)
 	{
-		while (x != 0)
-		{
-			str++;
-			x--;
-		}
 		if (y == 1)
-			*str = 'P';
-		x = par->p_x;
+		{
+			if (str[par->p_x] == '1')
+				return ;
+			else if (str[par->p_x] == 'E')
+				if (get_e(par))
+					return ;
+			if (str[par->p_x] == 'C')
+				par->count_c--;
+			str[par->p_x] = 'P';
+		}
 		curline = curline->next;
 		str = curline->line;
 		y--;
 	}
-	while (x != 0)
+	str[par->p_x] = '0';
+	par->move++;
+	set_p(par);
+}
+
+void	move_down(t_param *par, int y)
+{
+	t_mapline	*curline;
+	char		*str;
+	char		*savestr;
+
+	curline = par->map;
+	while (y != 0)
 	{
-		str++;
-		x--;
+		curline = curline->next;
+		y--;
 	}
-	*str = '0';
+	savestr = curline->line;
+	curline = curline->next;
+	str = curline->line;
+	if (str[par->p_x] == '1')
+		return ;
+	else
+	{
+		if (str[par->p_x + 1] == 'C')
+				par->count_c--;
+			str[par->p_x] = 'P';
+	}
+	savestr[par->p_x] = '0';
 	par->move++;
 	set_p(par);
 }

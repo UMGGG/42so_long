@@ -6,7 +6,7 @@
 /*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 18:35:34 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/06/09 20:38:42 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/06/10 16:56:06 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,15 @@ int		check_map(t_param *par);
 int		check_line(char *str);
 int		check_map_char(t_param *par);
 int		drawmap(t_param *par);
-int		esc_press(int keycode);
-int		redbut(void);
+int		esc_press(int keycode, t_param *par);
+int		redbut(t_param *par);
 int		key_press(int keycode, t_param *param);
+int		get_e(t_param *par);
 void	draw_img(char a, t_param *par, int x, int y);
 void	set_p(t_param *par);
-void	move_left(t_param *par);
-void	move_right(t_param *par);
-void	move_up(t_param *par);
+void	move_left(t_param *par, int y);
+void	move_right(t_param *par, int y);
+void	move_up(t_param *par, int y);
+void	move_down(t_param *par, int y);
 
 #endif
