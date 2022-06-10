@@ -6,7 +6,7 @@
 /*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 13:42:08 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/06/09 19:57:41 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/06/10 18:17:58 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	freemap(t_param *par)
 	t_mapline	*nextline;
 
 	currline = par->map;
-	while (currline != NULL)
+	while (currline)
 	{
 		nextline = currline->next;
 		free (currline);

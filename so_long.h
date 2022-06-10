@@ -6,7 +6,7 @@
 /*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 18:35:34 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/06/10 18:01:05 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/06/10 18:23:19 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define SO_LONG_H
 
 # include <stdio.h>
-# include <stdlib.h>
 # include <fcntl.h>
 # include "mlx/mlx.h"
 # include "lib/42Get_Next_Line/get_next_line.h"
@@ -57,8 +56,6 @@ typedef struct s_param
 	int			count_c;
 }	t_param;
 
-void	freemap(t_param *par);
-void	set_param(t_param *par);
 int		checkmap_length(t_param *par);
 int		copyline(char *str, t_param *par);
 int		copymap(t_param *par);
@@ -75,6 +72,8 @@ int		redbut(t_param *par);
 int		key_press(int keycode, t_param *param);
 int		get_e(t_param *par);
 int		print_err(char *str);
+void	freemap(t_param *par);
+void	set_param(t_param *par);
 void	draw_img(char a, t_param *par, int x, int y);
 void	set_p(t_param *par);
 void	move_left(t_param *par, int y);

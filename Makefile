@@ -6,7 +6,7 @@
 #    By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/26 16:01:20 by jaeyjeon          #+#    #+#              #
-#    Updated: 2022/06/10 17:54:36 by jaeyjeon         ###   ########.fr        #
+#    Updated: 2022/06/10 18:20:07 by jaeyjeon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ INCS_DIR	= ./inc/
 SRCS_DIR	= ./srcs/
 MLX_DIR		= ./mlx/
 
-SRCS		= lib/42Get_Next_line/get_next_line.c DrawMap.c\
+SRCS		= lib/42Get_Next_line/get_next_line.c draw_map.c\
 			lib/42Get_Next_line/get_next_line_utils.c set_param.c copy_map.c \
 			check_map.c check_map_wall.c so_long.c exit_game.c get_key.c move.c
 
