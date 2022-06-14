@@ -6,7 +6,7 @@
 /*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 18:17:17 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/06/10 16:56:30 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/06/15 02:26:26 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	main(void)
 	if (mapstat == 0)
 	{
 		printf("ERROR!\n");
+		freemap(&par);
 		return (0);
 	}
 	set_p(&par);

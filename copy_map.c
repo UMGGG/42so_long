@@ -6,7 +6,7 @@
 /*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 13:42:08 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/06/10 18:17:58 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/06/15 02:11:50 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,11 @@ void	freemap(t_param *par)
 		currline = nextline;
 	}
 	free (currline);
+	free (par->win);
+	free (par->mlx);
+	free (par->g);
+	free (par->w);
+	free (par->c);
+	free (par->e);
+	free (par->p);
 }

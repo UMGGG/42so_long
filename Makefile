@@ -6,11 +6,11 @@
 #    By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/26 16:01:20 by jaeyjeon          #+#    #+#              #
-#    Updated: 2022/06/10 18:20:07 by jaeyjeon         ###   ########.fr        #
+#    Updated: 2022/06/15 02:04:56 by jaeyjeon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= so_long.a
+NAME		= libsolong.a
 
 CC			= gcc
 CFLAGS		= -Wall -Werror -Wextra
@@ -28,7 +28,7 @@ SRCS		= lib/42Get_Next_line/get_next_line.c draw_map.c\
 OBJS		=	$(SRCS:.c=.o)
 
 %.o : %.c
-		${CC} ${CFLAGS} ${MLX_FLAGS} -c -o $@ $<
+		${CC} ${CFLAGS} -c -o $@ $<
 
 $(NAME):	$(OBJS)
 				ar crs $(NAME) $(OBJS)
