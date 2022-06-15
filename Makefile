@@ -6,19 +6,18 @@
 #    By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/26 16:01:20 by jaeyjeon          #+#    #+#              #
-#    Updated: 2022/06/15 02:04:56 by jaeyjeon         ###   ########.fr        #
+#    Updated: 2022/06/15 18:35:24 by jaeyjeon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= libsolong.a
+NAME		= so_long
 
 CC			= gcc
 CFLAGS		= -Wall -Werror -Wextra
+ar			= ar rcs
 MLX_FLAGS	= -Lmlx -lmlx -framework OpenGL -framework AppKit
-RM			= rm -rf
+RM			= rm -f
 
-INCS_DIR	= ./inc/
-SRCS_DIR	= ./srcs/
 MLX_DIR		= ./mlx/
 
 SRCS		= lib/42Get_Next_line/get_next_line.c draw_map.c\
@@ -31,11 +30,13 @@ OBJS		=	$(SRCS:.c=.o)
 		${CC} ${CFLAGS} -c -o $@ $<
 
 $(NAME):	$(OBJS)
-				ar crs $(NAME) $(OBJS)
+			make -C $(MLX_DIR)
+			$(CC) -g -o $(NAME) $(OBJS) $(MLX_FLAGS)
 
 all: $(NAME)
 
 clean:
+				make -C $(MLX_DIR) clean
 				$(RM) $(OBJS)
 
 fclean:		clean

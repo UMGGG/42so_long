@@ -6,7 +6,7 @@
 /*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 13:42:08 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/06/15 02:11:50 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/06/15 18:42:42 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	copymap(t_param *par)
 	while (str != NULL)
 	{
 		copyline(str, par);
+		free(str);
 		str = get_next_line(par->fd);
 	}
 	free (str);
