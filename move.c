@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: jaeyjeon <jaeyjeon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 19:26:38 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/06/10 18:10:34 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/06/16 17:50:54 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,9 @@ int	get_e(t_param *par)
 	{
 		par->move++;
 		printf("Game Finished!! Step: %d\n", par->move);
+		system ("leaks so_long");
 		freemap(par);
+		system ("leaks so_long");
 		exit(0);
 		return (0);
 	}

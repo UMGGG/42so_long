@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: jaeyjeon <jaeyjeon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 18:17:17 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/06/16 00:29:30 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/06/16 18:10:03 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@ int	main(void)
 	int			mapstat;
 
 	set_param(&par);
+	if (par.fd <= 0)
+	{
+		printf("Error\nInvalidMapFile\n");
+		return (0);
+	}
 	copymap(&par);
 	mapstat = check_map(&par);
 	if (mapstat == 0)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   copy_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: jaeyjeon <jaeyjeon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 13:42:08 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/06/15 19:07:14 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/06/16 17:47:34 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,15 +61,9 @@ void	freemap(t_param *par)
 	while (currline)
 	{
 		nextline = currline->next;
+		free (currline->line);
 		free (currline);
 		currline = nextline;
 	}
 	free (currline);
-	free (par->win);
-	free (par->mlx);
-	free (par->g);
-	free (par->w);
-	free (par->c);
-	free (par->e);
-	free (par->p);
 }

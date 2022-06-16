@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+         #
+#    By: jaeyjeon <jaeyjeon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/26 16:01:20 by jaeyjeon          #+#    #+#              #
-#    Updated: 2022/06/15 18:35:24 by jaeyjeon         ###   ########.fr        #
+#    Updated: 2022/06/16 18:13:00 by jaeyjeon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ OBJS		=	$(SRCS:.c=.o)
 
 $(NAME):	$(OBJS)
 			make -C $(MLX_DIR)
-			$(CC) -g -o $(NAME) $(OBJS) $(MLX_FLAGS)
+			$(CC) -o $(NAME) $(OBJS) $(MLX_FLAGS)
 
 all: $(NAME)
 

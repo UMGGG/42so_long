@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: jaeyjeon <jaeyjeon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 18:35:34 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/06/10 18:23:19 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/06/16 18:13:23 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct s_param
 	void		*c;
 	void		*e;
 	t_mapline	*map;
-	size_t		fd;
+	int			fd;
 	int			x;
 	int			y;
 	int			wi;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_param.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: jaeyjeon <jaeyjeon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 14:56:34 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/06/10 17:42:14 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/06/16 18:08:12 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 void	set_param(t_param *par)
 {
+	par->fd = open("maps/map.ber", O_RDONLY);
+	if (par->fd <= 0)
+		return ;
 	par->mlx = mlx_init();
 	par->g = mlx_xpm_file_to_image(par->mlx, "imgs/g.xpm", &par->wi, &par->he);
 	par->w = mlx_xpm_file_to_image(par->mlx, "imgs/r.xpm", &par->wi, &par->he);
@@ -26,7 +29,6 @@ void	set_param(t_param *par)
 	par->win_width = 0;
 	par->win_height = 0;
 	par->move = 0;
-	par->fd = open("maps/map.ber", O_RDONLY);
 	par->map = NULL;
 	par->count_e = 0;
 	par->count_p = 0;
