@@ -6,7 +6,7 @@
 /*   By: jaeyjeon <jaeyjeon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 18:17:17 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/06/16 18:10:03 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/06/16 19:36:02 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	main(void)
 	{
 		printf("Error\n");
 		freemap(&par);
+		exit (0);
 		return (0);
 	}
 	set_p(&par);

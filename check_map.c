@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: jaeyjeon <jaeyjeon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 13:20:26 by jaeyjeon          #+#    #+#             */
-/*   Updated: 2022/06/10 18:04:10 by jaeyjeon         ###   ########.fr       */
+/*   Updated: 2022/06/16 19:27:57 by jaeyjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ int	check_map(t_param *par)
 	if (map_line)
 		if (check_wall(par, map_line))
 			if (check_map_char(par))
+			{
 				return (1);
+			}
 	return (0);
 }
 
