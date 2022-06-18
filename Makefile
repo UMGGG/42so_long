@@ -6,7 +6,7 @@
 #    By: jaeyjeon <@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/26 16:01:20 by jaeyjeon          #+#    #+#              #
-#    Updated: 2022/06/17 02:26:10 by jaeyjeon         ###   ########.fr        #
+#    Updated: 2022/06/18 23:08:15 by jaeyjeon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,15 +33,15 @@ $(NAME):	$(OBJS)
 			make -C $(MLX_DIR)
 			$(CC) -o $(NAME) $(OBJS) -L $(MLX_DIR) $(MLX_FLAGS)
 
-all: $(NAME)
+all: 		$(NAME)
 
 clean:
-				make -C $(MLX_DIR) clean
-				$(RM) $(OBJS)
+			make -C $(MLX_DIR) clean
+			$(RM) $(OBJS)
 
 fclean:		clean
-				$(RM) $(NAME)
+			$(RM) $(NAME)
 
-re: clean all
+re:			clean all
 
-PHONY: all clean fclean re
+PHONY:		all clean fclean re
